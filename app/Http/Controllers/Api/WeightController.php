@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Weight;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\all;
+
 class WeightController extends Controller
 {
     /**
@@ -15,8 +17,11 @@ class WeightController extends Controller
      */
     public function index()
     {
-        $test = ["test"];
-        return $test;
+        // $test = ["test"];
+        // return $test;
+
+        $data = Weight::all();
+        return $data;
     }
 
     /**
