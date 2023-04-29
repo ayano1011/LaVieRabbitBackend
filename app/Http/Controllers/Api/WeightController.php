@@ -17,9 +17,6 @@ class WeightController extends Controller
      */
     public function index()
     {
-        // $test = ["test"];
-        // return $test;
-
         $data = Weight::all();
         return $data;
     }
