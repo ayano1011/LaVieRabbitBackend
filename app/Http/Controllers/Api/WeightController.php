@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Weight;
 use Illuminate\Http\Request;
 
 class WeightController extends Controller
@@ -36,8 +37,13 @@ class WeightController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Weight::create([
+            "weight" => $request->input("weight"),
+        ]);
+
+        return response()->json($data);
     }
+
 
     /**
      * Display the specified resource.
