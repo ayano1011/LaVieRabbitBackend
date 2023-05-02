@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Console\Scheduling\Schedule;
 
 class Kernel extends HttpKernel
 {
@@ -64,4 +65,12 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
     ];
+
+
+
+    // LINE通知定期実行ジョブスケジューラー
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->call([LineMessengerController::class, 'message'])->everyMinute();
+    }
 }

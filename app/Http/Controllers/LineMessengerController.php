@@ -11,8 +11,6 @@ class LineMessengerController extends Controller
 {
     public function message(Request $request)
     {
-        // return 'OK';
-
         // LINEBOTSDKの設定
         $http_client = new CurlHTTPClient(config('services.line.channel_token'));
         $bot = new LINEBot($http_client, ['channelSecret' => config('services.line.messenger_secret')]);
@@ -21,12 +19,12 @@ class LineMessengerController extends Controller
         $userId = "U702207f57cdec590f64165c6c227900d";
 
         // メッセージ設定
-        $message = "こんにちは！";
+        $message = "Testメッセージ!";
 
         // メッセージ送信
         $textMessageBuilder = new TextMessageBuilder($message);
         $response = $bot->pushMessage($userId, $textMessageBuilder);
 
-        return response()->json($response);
+        // return response()->json($response);
     }
 }
