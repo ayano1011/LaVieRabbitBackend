@@ -25,4 +25,6 @@ Route::prefix("weight")
     ->group(function () {
         Route::get("", [WeightController::class, "index"])->name("index");
         Route::post("", [WeightController::class, "store"])->name("store");
+
+        Route::get("/selectDate/{date}", [WeightController::class, "dateSelect"])->name("dateSelect");
     });

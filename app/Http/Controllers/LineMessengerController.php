@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class LineMessengerController extends Controller
 {
+
     public function message(Request $request)
     {
         // LINEBOTSDKの設定
@@ -19,7 +20,12 @@ class LineMessengerController extends Controller
         $userId = "U702207f57cdec590f64165c6c227900d";
 
         // メッセージ設定
-        $message = "Testメッセージ!";
+        $testData = 240;
+        if ($testData > 250) {
+            $message = "前日のうさちゃんの健康状態：良好";
+        } else {
+            $message = "前日のうさちゃんの健康状態：注意";
+        }
 
         // メッセージ送信
         $textMessageBuilder = new TextMessageBuilder($message);

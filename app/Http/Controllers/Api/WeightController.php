@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Weight;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 use function GuzzleHttp\Promise\all;
 
@@ -90,5 +91,11 @@ class WeightController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function dateSelect($date)
+    {
+        Log::debug($date);
+        return Weight::whereDate('created_at', $date)->orderBy('created_at', 'asc')->get();
     }
 }

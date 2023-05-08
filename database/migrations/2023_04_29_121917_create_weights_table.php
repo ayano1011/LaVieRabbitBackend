@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('weights', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("weight");
+            $table->bigInteger("raw_data");
+            $table->decimal("g_data", 10, 1);
+            $table->decimal("count", 10, 1);
             $table->timestamps();
         });
     }

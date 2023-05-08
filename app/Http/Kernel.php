@@ -71,7 +71,7 @@ class Kernel extends HttpKernel
     // LINE通知定期実行ジョブスケジューラー
     protected function schedule(Schedule $schedule)
     {
-        print("test");
+        // print("test");
         // $schedule->call([LineMessengerController::class, 'message'])->everyMinute();
     }
 }
