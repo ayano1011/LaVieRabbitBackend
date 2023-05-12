@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LineMessengerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
     return ['Laravel' => app()->version()];
 });
 
-require __DIR__.'/auth.php';
+// Route::get('/line/message', 'LineMessengerController@message');
+Route::get("/line/message", [LineMessengerController::class, "message"])->name("message");
+Route::post("/line/message", [LineMessengerController::class, "testMessage"])->name("testMessage");
+
+
+require __DIR__ . '/auth.php';
